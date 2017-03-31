@@ -7,7 +7,7 @@ funkcional=@f1;
 
 %if all(eig(nhess(xk)) > 0)         %je to relevantna informacia? chcem overit poz. def. ale mam len aproximaciu
 pb = -inv(nhess(xk))*ngrad(xk);
-pu = (-norm(ngrad(xk))/(ngrad(xk)' * nhess(xk) * ngrad(xk)))*ngrad(xk);
+pu = ((-ngrad(xk)'*ngrad(xk))/(ngrad(xk)' * nhess(xk) * ngrad(xk)))*ngrad(xk); %preco toto nefunguje samo o sebe?
 pu=pu/norm(pu);
 fun=@(t)modelova1(xk,t*pu);
 
