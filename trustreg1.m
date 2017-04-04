@@ -2,6 +2,7 @@ function [xk] = trustreg1 (x0,d0,maxn,p)
 %p=1 dogleg podla Nocedala
 %p=2 dogleg podla Matonohy
 %p=3 cauchy
+%P=4 zdruzene gradienty
 
 %funkcia trustreg hlada minimum funkcionalu pomocou dogleg metody
 %jedna sa o Algoritmus 4.1 z Nocedala
@@ -18,6 +19,7 @@ for n = 1:maxn
         case 1 ;pk = dogleg(xk,dk);
         case 2 ;pk = dogleg2(xk,dk);
         case 3 ;pk = cauchy(xk,dk);
+        case 4 ;pk = zdruzgrad(xk,dk);
     end
     
     if not(isnan(pk))

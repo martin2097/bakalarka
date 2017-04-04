@@ -12,5 +12,5 @@ TO DO:
 -implementacia bodu 4 z algoritmu 2.5 od Matonohy (str 46)
 -zastavovacie kriterium
 -volba pociatocnej velkosti trust regionu
--dalsi algoritmus?
 -vyriesenie problemu s poz. def. hessianu funkcii na vstupe (overovanie numericky pripadne obidenie tohoto problemu?)
+-ak hess nieje poz def vyskusat kombinovanu metodu
