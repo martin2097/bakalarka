@@ -13,9 +13,24 @@ if norm(xc)>=dk
     return
 end
 
-xn=(-inv(nhess(xk)))*ngrad(xk);
 
-%ako naprogramovat krok 4?
+
+%4)
+nhess(xk)
+rank(nhess(xk))
+if rank(nhess(xk))==size(nhess(xk),1)
+    xn=(-inv(nhess(xk)))*ngrad(xk);  
+else
+    [L,D,P]=ldlt_symm(nhess(xk));
+    di=size(D,1);
+    ek=zeros(di,1);
+    ek(di)=1;
+    v=(inv(L))'*ek;
+    v=v/norm(v)
+    
+    return
+end
+
 
 if norm(xn)<=dk
     pk=xn;

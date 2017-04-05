@@ -1,4 +1,4 @@
-function [xk] = trustreg1 (x0,d0,maxn,p)
+function [xk] = trustreg1 (x0,d0,p)
 %p=1 dogleg podla Nocedala
 %p=2 dogleg podla Matonohy
 %p=3 cauchy
@@ -8,6 +8,10 @@ function [xk] = trustreg1 (x0,d0,maxn,p)
 %jedna sa o Algoritmus 4.1 z Nocedala
 %konstanty: m je ni, d je globalne ohranicenie velkosti kroku
 %algoritmus zatial funguje v maxn krokoch zadavanych ako argument
+
+tol=eps^(1/3);
+maxn=100;
+
 funkcional=@f1;
 clearvars vystupxk vystupdk
 m = 0.1;
@@ -55,6 +59,12 @@ for n = 1:maxn
    vystuppk(n,2)=pk(2);
    vystupcit(n,1)=(funkcional(xk)-funkcional(xk+pk));
    vystupmen(n,1)=(modelova1(xk,zeros(di,1)) - modelova1(xk,pk));
+
+if norm(pk)<tol
+    table(vystupxk,vystupdk,vystuprok,vystupcit,vystupmen,vystuppk,vystupval)
+    return
+end
+
 end
 
 table(vystupxk,vystupdk,vystuprok,vystupcit,vystupmen,vystuppk,vystupval)

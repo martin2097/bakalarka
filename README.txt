@@ -10,7 +10,6 @@ Na vystupe sa zobrazi tabulka niekolkych sledovanych premennych a ako ans je uve
 
 TO DO:
 -implementacia bodu 4 z algoritmu 2.5 od Matonohy (str 46)
--zastavovacie kriterium
--volba pociatocnej velkosti trust regionu
 -vyriesenie problemu s poz. def. hessianu funkcii na vstupe (overovanie numericky pripadne obidenie tohoto problemu?)
 -ak hess nieje poz def vyskusat kombinovanu metodu
+-odstranit ratanie inverzii
