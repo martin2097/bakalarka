@@ -13,7 +13,6 @@ tol=eps^(1/3);
 maxn=100;
 
 funkcional=@f1;
-clearvars vystupxk vystupdk
 m = 0.1;
 d = 50;
 xk = x0;

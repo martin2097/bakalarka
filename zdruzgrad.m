@@ -11,7 +11,7 @@ if ni<=0
 k1=sum((pk).^2);
 k2=sum(2*x.*pk);
 k3=sum(x.^2)-dk.^2;
-t=roots([k1 k2 k3]) 
+t=roots([k1 k2 k3]); 
 if t(1)>0 
     pk=x+t(1)*pk;
 else
@@ -32,7 +32,7 @@ if norm(x)>dk
 k1=sum((pk).^2);
 k2=sum(2*xp.*pk);
 k3=sum(xp.^2)-dk.^2;
-t=roots([k1 k2 k3]) 
+t=roots([k1 k2 k3]) ;
 if t(1)>0 
     pk=xp+t(1)*pk;
 else
