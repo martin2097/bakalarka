@@ -1,0 +1,23 @@
+Kap 1 - Teoria (ake to ma byt cca dlhe?)
+podkap 1 - uvedenie trust regionov
+-zavedenie modelovej funkcie
+-zakladny trust region algoritmus a jeho popis
+-sformulovanie podproblemu minimalizacie modelovej funkcie na trust regione
+
+podkap 2 - cauchyho bod
+-popis algoritmu
+
+podkap 3 - metoda psej nohy
+-popis metody
+-algoritmus
+-lemma o tom ze funkcia je na trajektorii klesajuca a vzdialenost od bodu rastuca + dokaz
+-veta o konvergencii metody + dokaz
+
+podkap 4 - metoda zdruzenych gradientov
+-popis metody
+-algoritmus
+
+
+Kap 2 - kody
+
+Kap 3 - numericke vysledky
