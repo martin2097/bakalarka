@@ -11,10 +11,13 @@ function hod = f1(x)
 
 %hod = (4-2.1*x(1)^2+(x(1)^4)/3) * x(1)^2 + x(1)*x(2) + (-4+4*x(2)^2) *x(2)^2;   %Six-Hump Camel Function %pozor na poz def, funguje napr v [0.5;0.5]
 
-hod = 2*x(1)^2 -1.05*x(1)^4 + x(1)^6 / 6 + x(1)*x(2) + x(2)^2; %Three-Hump Camel Function ok v [0.5;0.5]
+%hod = 2*x(1)^2 -1.05*x(1)^4 + x(1)^6 / 6 + x(1)*x(2) + x(2)^2; %Three-Hump Camel Function ok v [0.5;0.5]
 
 %hod = (1.5 - x(1) + x(1)*x(2))^2 + (2.25 - x(1) + x(1)*x(2)^2)^2 + (2.625 - x(1) + x(1)*x(2)^3)^2; %Beale Function % funguje pozor v x(2)=1 nieje hessian pozitivne definitny
 
 %hod = 1 * (x(2) - (5.1/(4*pi^2))*x(1)^2 + (5/pi)*x(1) - 6)^2 + 10*(1-(1/(8*pi)))*cos(x(1)) + 10; %Branin Function %funguju napr [7.9;8] , [-4.6;3], [2;8]
 
+%hod = 100*(x(2)-x(1)^2)^2+(x(1)-1)^2; %rosenbrock pred d=2
+ 
+hod = 100*(x(2)-x(1)^2)^2+(x(1)-1)^2 + 100*(x(3)-x(2)^2)^2+(x(2)-1)^2 + 100*(x(4)-x(3)^2)^2+(x(3)-1)^2 + 100*(x(5)-x(4)^2)^2+(x(4)-1)^2 ; %rosenbrock pre d=5
 end

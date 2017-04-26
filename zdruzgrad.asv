@@ -5,8 +5,7 @@ epsilon=0.1;
 r=ngrad(xk);
 pk=0;
 d=-r;
-spinac=1;
-while spinac<150
+
 %1)
 ni=d'*nhess(xk)*d;
 pkp=pk;
@@ -20,7 +19,7 @@ if t(1)>0
     return
 else
     if t(2)>0 
-    pk=pk+t(2)*d;
+    pk=x+t(2)*pk;
     return
 end
 end    
@@ -56,16 +55,16 @@ end
 %3)
 
 rp=r;
-r=r+alfa*nhess(xk)*d;
+r=r+alfa*nhess(xk)*pk;
 
 if norm(r)<=epsilon*norm(ngrad(xk))
+pk=x;
 return
 end
 
 %4)
 
 beta=(r'*r)/(rp'*rp);
-d=-r+beta*d;
-spinac=spinac+1;
-end
+pk=-r+beta*pk;
+
 end
