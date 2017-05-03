@@ -1,14 +1,15 @@
 function [pk] = zdruzgrad(xk,dk)
 epsilon=0.1;
+gk=ngrad(xk);
+Hk=nhess(xk);
 
-
-r=ngrad(xk);
+r=gk;
 pk=0;
 d=-r;
 spinac=1;
 while spinac<150
 %1)
-ni=d'*nhess(xk)*d;
+ni=d'*Hk*d;
 pkp=pk;
 if ni<=0
 k1=sum((d).^2);
@@ -56,9 +57,9 @@ end
 %3)
 
 rp=r;
-r=r+alfa*nhess(xk)*d;
+r=r+alfa*Hk*d;
 
-if norm(r)<=epsilon*norm(ngrad(xk))
+if norm(r)<=epsilon*norm(gk)
 return
 end
 

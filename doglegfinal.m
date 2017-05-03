@@ -1,25 +1,27 @@
 function [pk] = doglegfinal(xk,dk)
 %dogleg podla matonohy str 46
+gk=ngrad(xk);
+Hk=nhess(xk);
 
 %1) kontrola poz def
-if (ngrad(xk)'*nhess(xk)*ngrad(xk))<0
+if (gk'*Hk*gk)<0
 pk=cauchy(xk,dk); %ak hessian nieje poz def pouzijem cauchyho bod
     %disp('1');
     return
 end
 
 % spocitam cacuhyho bod
-xc=((-ngrad(xk)'*ngrad(xk))/(ngrad(xk)' * nhess(xk) * ngrad(xk)))*ngrad(xk);
+xc=((-gk'*gk)/(gk' * Hk * gk))*gk;
 
 %2) cauchyho bod lezi mimo trust regionu
 if norm(xc)>=dk
-    pk=(-dk/norm(ngrad(xk)))*ngrad(xk);
+    pk=(-dk/norm(gk))*gk;
     %disp('2');
     return
 end
 
 % zrataj newtnov bod
-xn=nhess(xk)\(-ngrad(xk));
+xn=Hk\(-gk);
 
 
 %3) kontrola klesania

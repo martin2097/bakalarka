@@ -58,7 +58,7 @@ for n = 1:maxn
  %  vystupcit(n,1)=(funkcional(xk)-funkcional(xk+pk));
  %  vystupmen(n,1)=(modelova1(xk,zeros(di,1)) - modelova1(xk,pk));
 
-if norm(pk)<tol
+if or(norm(pk)<tol,norm(ngrad(xk))<tol)
     %table(vystupxk,vystupdk,vystuprok,vystupcit,vystupmen,vystuppk,vystupval)
     xk
     funkcional(xk)
